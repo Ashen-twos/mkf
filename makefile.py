@@ -112,9 +112,9 @@ def slove(img_path,demo_steps):
         if (i + 1) % 5 == 0:
             print('step %d, loss=%g' % (i + 1, loss_value))
     adv = x_hat.eval()  # retrieve the adversarial example
-    mp.imsave('mnt//data//aigroup-data//yanh-data//pic//40//n01484850//' + img_path[51:], adv)
+    mp.imsave('//mnt//data//aigroup-data//yanh-data//pic//40//n01484850//' + img_path[51:], adv)
 
-paths = glob.glob('mnt//data//aigroup-data//yanh-data//val//n01484850//*')
+paths = glob.glob('//mnt//data//aigroup-data//yanh-data//val//n01484850//*')
 for path in paths:
     print(path)
     slove(path,40)
