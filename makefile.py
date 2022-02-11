@@ -13,6 +13,9 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mp
 import glob
 
+
+print(1)
+
 tf.logging.set_verbosity(tf.logging.ERROR)
 sess = tf.InteractiveSession()
 image = tf.Variable(tf.zeros((224, 224, 3)))
@@ -28,9 +31,9 @@ def inception(image, reuse):
         probs = tf.nn.softmax(logits)  # probabilities
     return logits, probs
 
-
+print(2)
 logits, probs = inception(image, reuse=False)
-
+print(3)
 data_dir = tempfile.mkdtemp()
 inception_tarball, _ = urlretrieve(
     'http://download.tensorflow.org/models/inception_v1_2016_08_28.tar.gz')
@@ -41,13 +44,13 @@ restore_vars = [
 ]
 saver = tf.train.Saver(restore_vars)
 saver.restore(sess, os.path.join(data_dir, 'inception_v1.ckpt'))
-
+print(4)
 imagenet_json, _ = urlretrieve(
     'http://www.anishathalye.com/media/2017/07/25/imagenet.json')
 with open(imagenet_json) as f:
     imagenet_labels = json.load(f)
 
-
+print(5)
 def classify(img, correct_class=None, target_class=None, label='o'):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 8))
     fig.sca(ax1)
