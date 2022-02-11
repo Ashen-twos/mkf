@@ -116,4 +116,5 @@ def slove(img_path,demo_steps):
 
 paths = glob.glob('mnt//data//aigroup-data//yanh-data//val//n01484850//*')
 for path in paths:
+    print(path)
     slove(path,40)
